@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Chatbot IA - TI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="ecra-login" class="card-login">
+        <h2>Acesso ao Sistema</h2>
+        <p class="subtitulo">Curso Técnico em Desenvolvimento de Sistemas</p>
+        
+        <div id="mensagem-erro" class="alerta-erro escondido">
+            Utilizador ou palavra-passe incorretos.
+        </div>
+
+        <form id="form-login" onsubmit="validarLogin(event)">
+            <div class="campo-grupo">
+                <label for="campo-usuario">Utilizador:</label>
+                <input type="text" id="campo-usuario" required placeholder="Digite o utilizador">
+            </div>
+            <div class="campo-grupo">
+                <label for="campo-senha">Palavra-passe:</label>
+                <input type="password" id="campo-senha" required placeholder="Digite a palavra-passe">
+            </div>
+            <button type="submit" class="btn btn-primario btn-bloco">ENTRAR</button>
+        </form>
+    </div>
+
+    <div id="ecra-principal" class="card-painel escondido">
+        
+
+        <header class="header-painel">
+            <h1>SISTEMA DE ATENDIMENTO INTELIGENTE</h1>
+            <button onclick="alternarTema()" id="btn-tema" class="btn btn-secundario">Alternar Tema</button>
+        </header>
+
+        <nav class="abas-navegacao">
+            <button onclick="mudarAba('chat')" id="aba-btn-chat" class="aba-btn ativa">Chat Assistant</button>
+            <button onclick="mudarAba('perfil')" id="aba-btn-perfil" class="aba-btn">Perfil do Utilizador</button>
+        </nav>
+
+
+        <section id="conteudo-chat" class="aba-conteudo">
+            <div id="historico-chat" class="historico-box">
+                <div class="mensagem-sistema">Conversa iniciada. Pergunte sobre assuntos de TI.</div>
+            </div>
+
+            <div class="controles-chat">
+                <input type="text" id="campo-mensagem" onkeypress="verificarTecla(event)" placeholder="Escreva a sua mensagem...">
+                <button onclick="enviarMensagem()" id="btn-enviar" class="btn btn-primario">Enviar</button>
+                <button onclick="limparHistorico()" class="btn btn-perigo">Limpar</button>
+            </div>
+        </section>
+
+        <section id="conteudo-perfil" class="aba-conteudo escondido">
+            <h3>Informações do Perfil</h3>
+            
+            <div id="caixa-avatar" class="avatar-box">
+                [ UTILIZADOR ]
+            </div>
+
+            <div class="perfil-dados">
+                <div class="perfil-linha">
+                    <span class="rotulo">Nome de Utilizador:</span>
+                    <span id="perfil-nome">Pedro</span>
+                </div>
+                <div class="perfil-linha">
+                    <span class="rotulo">Curso:</span>
+                    <span>Desenvolvimento de Sistemas</span>
+                </div>
+                <div class="perfil-linha">
+                    <span class="rotulo">Módulo / Semestre:</span>
+                    <span>2º Semestre</span>
+                </div>
+                <div class="perfil-linha">
+                    <span class="rotulo">Instituição:</span>
+                    <span>SESI / SENAI</span>
+                </div>
+                <div class="perfil-linha">
+                    <span class="rotulo">Estado da Sessão:</span>
+                    <span class="status-ativo">Autenticado - Conexão Ativa</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
